@@ -35,7 +35,11 @@ const App = () => {
             <input
               type="date"
               value={currDate.toISOString().slice(0, 10)}
-              onChange={(e) => setCurrDate(new Date(e.target.value))}
+              onChange={(e) =>
+                setCurrDate(
+                  e.target.value ? new Date(e.target.value) : new Date()
+                )
+              }
               id="selectWeek"
             />
           </div>
