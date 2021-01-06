@@ -8,6 +8,7 @@ const WeekDisplay = ({ week }) => {
   const [books, setBooks] = useState([]);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
+    setLoaded(false);
     fetch(
       `https://gateway.marvel.com:443/v1/public/comics?format=comic&dateRange=${week.start},${week.end}&apikey=7329de7a0831325eb9e98255826941cf`
     )
