@@ -16,6 +16,7 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, "./src"),
     hot: true,
+    overlay: true,
   },
   module: {
     rules: [

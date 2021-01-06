@@ -20,6 +20,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.22.0",
     "html-webpack-plugin": "^4.5.1",
+    "prop-types": "^15.7.2",
     "react-hot-loader": "^4.13.0",
     "sass": "^1.32.0",
     "sass-loader": "^10.1.0",
