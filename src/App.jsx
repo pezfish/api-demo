@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import WeekDisplay from "./containers/WeekDisplay.jsx";
-import { calculateWeek } from "./utils/date.js";
+import { calculateWeek, previousWeek, nextWeek } from "./utils/date.js";
 
 const App = () => {
   const [currDate, setCurrDate] = useState(new Date());
@@ -14,15 +14,48 @@ const App = () => {
     });
   };
 
+  const handlePrevWeek = () => {
+    const prev = previousWeek(currDate);
+
+    setCurrDate(new Date(prev));
+  };
+
+  const handleNextWeek = () => {
+    const next = nextWeek(currDate);
+
+    setCurrDate(new Date(next));
+  };
+
   return (
     <div>
-      <input
-        type="date"
-        value={currDate}
-        onChange={(e) => setCurrDate(new Date(e.target.value))}
-      />
-      <h1>Marvel comics released week of {formatDate(currDate)}</h1>
-      <WeekDisplay week={calculateWeek(currDate)} />
+      <header>
+        <nav className="mainnav">
+          <div>
+            <label htmlFor="selectWeek">Select week to display</label>
+            <input
+              type="date"
+              value={currDate.toISOString().slice(0, 10)}
+              onChange={(e) => setCurrDate(new Date(e.target.value))}
+              id="selectWeek"
+            />
+          </div>
+          <div>
+            <button type="button" onClick={handlePrevWeek}>
+              Previous Week
+            </button>
+            <button type="button" onClick={handleNextWeek}>
+              Next Week
+            </button>
+          </div>
+        </nav>
+        <h1>Marvel comics released week of {formatDate(currDate)}</h1>
+      </header>
+      <main>
+        <WeekDisplay week={calculateWeek(currDate)} />
+      </main>
+      <footer>
+        <a href="http://marvel.com">Data provided by Marvel. © 2021 MARVEL</a>
+      </footer>
     </div>
   );
 };
