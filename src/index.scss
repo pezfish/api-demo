@@ -1,5 +1,14 @@
-$background: #eee;
-
 body {
-  background: $background;
+  margin: 0;
+}
+
+.booklist {
+  margin: 20px 0 0 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  img {
+    max-width: 100%;
+  }
 }

@@ -33,12 +33,10 @@ WeekDisplay.propTypes = {
 
 const Page = ({ data }) => {
   const listItems = data.map((item) => (
-    <li key={item.id}>
-      <Thumbnail imageData={item.thumbnail} alt={item.title} />
-    </li>
+    <Thumbnail key={item.id} imageData={item.thumbnail} alt={item.title} />
   ));
 
-  return <ul>{listItems}</ul>;
+  return <div className="booklist">{listItems}</div>;
 };
 
 Page.propTypes = {
